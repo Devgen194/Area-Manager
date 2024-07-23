@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->text('coordinates')->nullable();
+            $table->text('coordinates');
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->boolean('display_in_breach_list')->default(false)->nullable();

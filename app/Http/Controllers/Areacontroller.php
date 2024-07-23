@@ -22,7 +22,7 @@ class AreaController extends Controller
             $data = $request->validate([
                 'name' => 'required|string|max:255',
                 'description' => 'nullable|string',
-                'coordinates' => 'nullable|json',
+                'coordinates' => 'required|json',
                 'start_date' => 'required|date',
                 'end_date' => 'nullable|date|after_or_equal:start_date',
                 'category_id' => 'required|exists:categories,id',
