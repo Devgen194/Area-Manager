@@ -78,7 +78,9 @@
 
         <div class="mt-6 bg-white rounded-md shadow p-4">
             <h2 class="text-xl font-bold mb-4">Saved Areas</h2>
-            <livewire:search-areas />
+            <livewire:search-areas/>
         </div>
+
+
     </div>
 @endsection

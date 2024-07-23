@@ -2,9 +2,8 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-
 use App\Models\Area;
+use Livewire\Component;
 
 class SearchAreas extends Component
 {

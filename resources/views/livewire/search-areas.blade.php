@@ -1,5 +1,11 @@
 <div>
-    <input type="text" wire:model="search" placeholder="Search areas..." class="rounded form-input mt-1 block border">
+    <div class="flex ">
+    <input type="text" wire:model.live="search" placeholder="Search areas..." class="rounded form-input mt-1 block border">
+
+        <div class="rounded bg-red-700 text-white p-2 ml-2">
+            Clear
+        </div>
+    </div>
     <table class="table-auto w-full mt-4">
         <thead>
         <tr>

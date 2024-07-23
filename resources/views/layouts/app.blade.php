@@ -8,12 +8,14 @@
     @livewireStyles
 </head>
 <body>
+
 <div class="min-h-screen bg-gray-100">
     <div class="container mx-auto p-6">
         @yield('content')
     </div>
-
+    @livewireStyles
 </div>
-@livewireScripts
+
+
 </body>
 </html>
