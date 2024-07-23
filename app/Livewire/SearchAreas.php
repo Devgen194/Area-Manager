@@ -8,7 +8,7 @@ use App\Models\Area;
 
 class SearchAreas extends Component
 {
-    public $search = '';
+    public string $search = '';
 
     public function render()
     {
