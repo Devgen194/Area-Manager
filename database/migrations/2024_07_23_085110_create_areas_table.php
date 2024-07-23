@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('coordinates')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
-            $table->boolean('display_in_breach_list')->default(false);
+            $table->boolean('display_in_breach_list')->default(false)->nullable();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

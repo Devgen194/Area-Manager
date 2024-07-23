@@ -20,9 +20,7 @@
                     <td class="border px-4 py-2">{{ $area->start_date }}</td>
                     <td class="border px-4 py-2">{{ $area->end_date }}</td>
                     <td class="border px-4 py-2">
-                        @foreach($area->categories as $category)
-                            <span class="inline-block bg-gray-200 px-2 py-1 rounded">{{ $category->name }}</span>
-                        @endforeach
+                        <span class="inline-block bg-gray-200 px-2 py-1 rounded">{{ $category->name }}</span>
                     </td>
                 </tr>
             @endforeach

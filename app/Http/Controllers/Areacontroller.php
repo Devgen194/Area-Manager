@@ -12,7 +12,8 @@ class AreaController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('component.area', compact('categories'));
+        $areas = Area::with('category')->get();
+        return view('component.area', compact('categories', 'areas'));
     }
 
     public function store(Request $request)
@@ -25,7 +26,7 @@ class AreaController extends Controller
                 'start_date' => 'required|date',
                 'end_date' => 'nullable|date|after_or_equal:start_date',
                 'category_id' => 'required|exists:categories,id',
-                'display_in_breach_list' => 'sometimes|boolean',
+                'display_in_breach_list' => 'nullable|sometimes|boolean',
             ]);
 
             Area::create($data);

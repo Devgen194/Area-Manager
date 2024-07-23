@@ -33,10 +33,10 @@
 
                     <input type="hidden" id="coordinates" name="coordinates" value="{{ old('coordinates') }}">
 
-{{--                    <div class="mb-4">--}}
-{{--                        <label for="geojsonFile" class="block text-gray-700 font-bold mb-2">Click here to select files to upload (or drag & drop files):</label>--}}
-{{--                        <input type="file" id="geojsonFile" name="geojsonFile" class="form-input mt-1 block w-1/2">--}}
-{{--                    </div>--}}
+                    <div class="mb-4">
+                        <label for="geojsonFile" class="block text-gray-700 font-bold mb-2">Click here to select files to upload (or drag & drop files):</label>
+                        <input type="file" id="geojsonFile" name="geojsonFile" class="form-input mt-1 block w-1/2">
+                    </div>
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 font-bold mb-2">Area Name</label>
                         <input type="text" id="name" name="name" class="border rounded form-input mt-1 block w-1/2">
