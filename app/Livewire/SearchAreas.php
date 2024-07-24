@@ -7,7 +7,12 @@ use Livewire\Component;
 
 class SearchAreas extends Component
 {
-    public string $search = '';
+    public $search = '';
+
+    public function clearSearch(): void
+    {
+        $this->reset('search');
+    }
 
     public function render()
     {

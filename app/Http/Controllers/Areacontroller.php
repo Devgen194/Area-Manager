@@ -13,7 +13,7 @@ class AreaController extends Controller
     {
         $categories = Category::all();
         $areas = Area::with('category')->get();
-        return view('component.area', compact('categories', 'areas'));
+        return view('components.area', compact('categories', 'areas'));
     }
 
     public function store(Request $request)
