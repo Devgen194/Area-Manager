@@ -22,12 +22,26 @@ class AreaController extends Controller
             $data = $request->validate([
                 'name' => 'required|string|max:255',
                 'description' => 'nullable|string',
-                'coordinates' => 'required|json',
+                'coordinates' => 'nullable|json',
+                'geojsonFile' => 'nullable|file|mimes:json',
                 'start_date' => 'required|date',
                 'end_date' => 'nullable|date|after_or_equal:start_date',
                 'category_id' => 'required|exists:categories,id',
                 'display_in_breach_list' => 'nullable|sometimes|boolean',
             ]);
+
+            // Check if GeoJSON file is present and extract coordinates
+            if ($request->hasFile('geojsonFile')) {
+                $geojson = json_decode(file_get_contents($request->file('geojsonFile')->getRealPath()), true);
+                if (isset($geojson['geometry']['coordinates'])) {
+                    $data['coordinates'] = json_encode($geojson['geometry']['coordinates']);
+                }
+            }
+
+            // If coordinates are still not set, use the coordinates from the request
+            if (!isset($data['coordinates']) || empty($data['coordinates'])) {
+                $data['coordinates'] = $request->input('coordinates');
+            }
 
             Area::create($data);
 

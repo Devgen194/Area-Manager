@@ -29,7 +29,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('areas.store') }}" method="POST">
+                <form action="{{ route('areas.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" id="coordinates" name="coordinates" value="{{ old('coordinates') }}">
@@ -38,17 +38,26 @@
                         <label for="geojsonFile" class="block text-gray-700 font-bold mb-2">Click here to select files
                             to upload (or drag & drop files):</label>
                         <input type="file" id="geojsonFile" name="geojsonFile" class="form-input mt-1 block w-1/2">
+                        @error('geojsonFile')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 font-bold mb-2">Area Name</label>
                         <input type="text" id="name" name="name" class="border rounded form-input mt-1 block w-1/2"
                                value="{{ old('name') }}">
+                        @error('name')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for="description" class="block text-gray-700 font-bold mb-2">Area Description
                             (optional)</label>
                         <textarea id="description" name="description"
                                   class="border rounded form-input mt-1 block w-full">{{ old('description') }}</textarea>
+                        @error('description')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for="category_id" class="block text-gray-700 font-bold mb-2">Category</label>
@@ -58,16 +67,25 @@
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
+                        @error('category_id')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for="start_date" class="block text-gray-700 font-bold mb-2">Valid From</label>
                         <input type="date" id="start_date" name="start_date"
                                class="border rounded form-input mt-1 block w-1/2" value="{{ old('start_date') }}">
+                        @error('start_date')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for="end_date" class="block text-gray-700 font-bold mb-2">Valid To (optional)</label>
                         <input type="date" id="end_date" name="end_date"
                                class="border rounded form-input mt-1 block w-1/2" value="{{ old('end_date') }}">
+                        @error('end_date')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for="display_in_breach_list" class="inline-flex items-center">
@@ -90,7 +108,5 @@
             <h2 class="text-xl font-bold mb-4">Saved Areas</h2>
             <livewire:search-areas/>
         </div>
-
-
     </div>
 </x-layout>

@@ -14,6 +14,7 @@
         <tr>
             <th class="px-4 py-2">Name</th>
             <th class="px-4 py-2">Coordinates</th>
+            <th class="px-4 py-2">Description</th>
             <th class="px-4 py-2">Start Date</th>
             <th class="px-4 py-2">End Date</th>
             <th class="px-4 py-2">Category</th>
@@ -29,6 +30,7 @@
                 <tr>
                     <td class="border px-4 py-2">{{ $area->name }}</td>
                     <td class="border px-4 py-2">{{ $area->coordinates }}</td>
+                    <td class="border px-4 py-2">{{ $area->description }}</td>
                     <td class="border px-4 py-2">{{ $area->start_date }}</td>
                     <td class="border px-4 py-2">{{ $area->end_date }}</td>
                     <td class="border px-4 py-2">

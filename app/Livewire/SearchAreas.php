@@ -21,7 +21,7 @@ class SearchAreas extends Component
             ->orWhereHas('category', function($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
-            ->get();
+            ->orderBy('created_at', 'desc')->get();
 
         return view('livewire.search-areas', ['areas' => $areas]);
     }
